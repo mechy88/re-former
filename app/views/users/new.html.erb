@@ -1,5 +1,7 @@
 <% if @errors.nil? %>
-<%= `<p> #{@errors} </p>`%>
+<%=     `<p> Carry on <p>`%>
+<% else %>
+<%=     `<p> #{@errors} </p>` %>
 <% end %>
 
 <%= form_for @user do |form| %>

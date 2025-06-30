@@ -1,0 +1,14 @@
+<% if @user.errors.present? %>
+<%= @user.errors.full_messages.join(" ") %>
+<% end %>
+
+<%= form_for @user do |form| %>
+  <%= form.label :username, "Username:" %>
+  <%= form.text_field :username %>
+   <%= form.label :email, "Email:" %>
+  <%= form.text_field :email %>
+   <%= form.label :password, "Password:" %>
+  <%= form.text_field :password %>
+  <%= form.submit "Submit" %>
+
+<% end %>
