@@ -7,9 +7,13 @@ class UsersController < ApplicationController
     # @user = User.new(username: params[:username], email: params[:email], password: params[:password])
     @user = User.new(user_params)
 
-    if @user.save
+    if User.exists?(username: @user.username)
+      User.find_by(username: @user.username).update(user_params)
+      redirect_to new_user_path
+    elsif @user.save
       redirect_to new_user_path
     else
+      @errors = @user.errors.full_messages
       render :new
     end
   end
